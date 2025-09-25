@@ -1,0 +1,36 @@
+
+name: Generate Snake Animation
+
+on:
+  schedule: # execute every 24 hours
+    - cron: "0 */24 * * *"
+  workflow_dispatch:
+  push:
+    branches:
+    - main
+
+jobs:
+  generate:
+    permissions:
+      contents: write
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Generate snake animation
+        uses: Platane/snk@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            snake-dist/github-contribution-grid-snake.svg
+            snake-dist/github-contribution-grid-snake-dark.svg?palette=github-dark
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Deploy snake to output branch
+        uses: crazy-max/ghaction-github-pages@v3.1.0
+        with:
+          target_branch: output
+          build_dir: snake-dist
+          keep_files: true  # 🔥 CRITICAL: Don't delete Pacman files
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
