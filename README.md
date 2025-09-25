@@ -103,6 +103,15 @@
 
 <hr />
 
+<!-- pacman -->
+<h2 align="center">🎮 Pacman Eating My Contributions 🎮</h2>
+<br />
+<div align="center">
+  <img src="https://raw.githubusercontent.com/shubhamtarwani/shubhamtarwani/output/pacman-contribution-graph-dark.svg" alt="Pacman contribution graph" style="width: 100%; max-width: 800px;">
+</div>
+
+<hr />
+
 <!-- github trophies (will populate as you earn them) -->
 <h2 align="center">🏆 GitHub Trophies 🏆</h2>
 <br />
